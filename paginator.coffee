@@ -1,5 +1,5 @@
-# Pagination util
-share.Paginator = class Paginator
+# Paginator package for meteor
+Paginator = class Paginator
   constructor: (nperpage) ->
     @currPage = 1
     @dep = new Deps.Dependency
@@ -21,7 +21,6 @@ share.Paginator = class Paginator
     if @currPage > 0
       @currPage-=1; @dep.changed(); return yes
     else return no
-  slide: (n) -> console.log "Paginator::slide not implemented"
   perPage: (i) ->
     @dep.depend()
     if i then @dep.changed() @rPerPage = i else @rPerPage
@@ -31,7 +30,5 @@ share.Paginator = class Paginator
   pages: ->
     @dep.depend(); list = []
     for p in [1..@npages]
-      if p is @currPage
-        list.push { activePage: 'active', index: p }
-      else list.push index: p
+      list.push { active: p is @currPage, index: p }
     list
