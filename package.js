@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Utility to handle content pagination (queries and visualization) in meteor",
-  version: "0.1",
+  version: "0.1.0",
   git: "https://github.com/fazo96/meteor-paginator"
 });
 
